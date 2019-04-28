@@ -2,12 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  template: `<button
-                class="btn btn-primary"
-                [class.disabled]="isDisabled"
-                (click)='testClick($event)'>
-                    Submit
-                </button>`
+  template: `<rating></rating>`
 })
 export class AppComponent {
     isDisabled: boolean = false;
