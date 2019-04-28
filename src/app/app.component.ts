@@ -1,11 +1,18 @@
 import { Component } from '@angular/core';
-import { ProductsService } from './products.service';
+
 @Component({
   selector: 'app-root',
-  template: `<h1>{{title}}</h1>
-            <products></products>`,
-   providers: [ProductsService]
+  template: `<button
+                class="btn btn-primary"
+                [class.disabled]="isDisabled"
+                (click)='testClick($event)'>
+                    Submit
+                </button>`
 })
 export class AppComponent {
-  title:string = 'My first Angular App!';
+    isDisabled: boolean = false;
+
+    testClick($event: MouseEvent) {
+        console.log('Clicked', $event);
+    } 
 }
