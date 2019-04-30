@@ -38,7 +38,7 @@ import { Component, Input } from '@angular/core';
                     (click) = 'rate(5)'
                 >
                 </i>
-                <button [value]="title" (click)="onClick($event)">Submit</button>
+                <span>Reviews: {{ numOfReviews }}</span>
             `,
     styles: [`
         .glyphicon-star {
@@ -47,7 +47,8 @@ import { Component, Input } from '@angular/core';
     `]
 })
 export class RatingComponent {
-    @Input() rating: number = 0;
+    @Input('rating-value') rating: number = 0;
+    @Input() numOfReviews: number = 0;
 
     rate(rating: number) {
         this.rating = rating;

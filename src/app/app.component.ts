@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  template: `<rating></rating>`
+  template: `<products></products>`
 })
 export class AppComponent {
     isDisabled: boolean = false;

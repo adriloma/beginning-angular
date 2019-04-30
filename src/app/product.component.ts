@@ -4,12 +4,14 @@ import {Component, Input} from '@angular/core';
     selector: 'product',
     template: `
                 <div class="media">
-                  <img src="{{data.imageUrl}}" class="mr-3">
+                  <div class="media-left">
+                    <img src="{{data.imageUrl}}" class="mr-3">
+                  </div>
                   <div class="media-body">
                     <h5 class="mt-0">{{data.productName}}</h5>
                         {{data.releasedDate}}
                         <rating [rating-value] = "data.rating" [numOfReviews] = "data.numOfReviews">
-                        </rating></br>
+                        </rating><br/>
                         {{data.description}}
                   </div>
                 </div>`,

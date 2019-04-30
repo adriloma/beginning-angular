@@ -9,16 +9,14 @@ import {ProductsService } from './products.service'
 @Component({
     selector: 'products',
     template: `<h2>Products</h2>
-              <ul>
-                  <li *ngFor= "let product of products">
-                    {{ product }}
-                  </li>
-              </ul>`
+              <div *ngFor= "let product of products">
+                  <product [data] = "product"></product>
+              </div>`
 })
 
 // Se exporta la clase para que esté disponible para ser importada por otros archivos de la aplicación
 export class ProductsComponent {
-    products: String[] = [];
+    products: Object[] = [];
 
     constructor(ProductsService: ProductsService) {
         this.products = ProductsService.getProducts();
