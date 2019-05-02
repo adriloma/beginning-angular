@@ -38,7 +38,16 @@ import { Component, Input } from '@angular/core';
                     (click) = 'rate(5)'
                 >
                 </i>
-                <span>Reviews: {{ numOfReviews }}</span>
+                <span>Reviews: {{ numOfReviews }}</span><br>
+                <div [ngSwitch]="rating">
+                    <div *ngSwitchCase=0> Horrible </div>
+                    <div *ngSwitchCase=1> Malo </div>
+                    <div *ngSwitchCase=2> Suficiente </div>
+                    <div *ngSwitchCase=3> Notable </div>
+                    <div *ngSwitchCase=4> Sobresaliente </div>
+                    <div *ngSwitchCase=5> Excelente </div>
+                </div>
+
             `,
     styles: [`
         .glyphicon-star {
@@ -48,7 +57,7 @@ import { Component, Input } from '@angular/core';
 })
 export class RatingComponent {
     @Input('rating-value') rating: number = 0;
-    @Input() numOfReviews: number = 0;
+    @Input('numOfReviews') numOfReviews: number = 0;
 
     rate(rating: number) {
         this.rating = rating;

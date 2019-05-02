@@ -9,9 +9,14 @@ import {ProductsService } from './products.service'
 @Component({
     selector: 'products',
     template: `<h2>Products</h2>
-              <div *ngFor= "let product of products">
-                  <product [data] = "product"></product>
-              </div>`
+              <div *ngIf= "products.length === 0; else loading">
+                <span> No products to show </span>
+              </div>
+              <ng-template #loading>
+                <div *ngFor= "let product of products">
+                    <product [data] = "product"></product>
+                </div>
+              </ng-template>`
 })
 
 // Se exporta la clase para que esté disponible para ser importada por otros archivos de la aplicación
