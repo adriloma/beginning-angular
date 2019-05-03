@@ -386,6 +386,134 @@
           }
         }
       }
+    },
+    "chapter8": {
+      "root": "projects/chapter8/",
+      "sourceRoot": "projects/chapter8/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/chapter8",
+            "index": "projects/chapter8/src/index.html",
+            "main": "projects/chapter8/src/main.ts",
+            "polyfills": "projects/chapter8/src/polyfills.ts",
+            "tsConfig": "projects/chapter8/tsconfig.app.json",
+            "assets": [
+              "projects/chapter8/src/favicon.ico",
+              "projects/chapter8/src/assets"
+            ],
+            "styles": [
+              "projects/chapter8/src/styles.css"
+            ],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/chapter8/src/environments/environment.ts",
+                  "with": "projects/chapter8/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "chapter8:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "chapter8:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "chapter8:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/chapter8/src/test.ts",
+            "polyfills": "projects/chapter8/src/polyfills.ts",
+            "tsConfig": "projects/chapter8/tsconfig.spec.json",
+            "karmaConfig": "projects/chapter8/karma.conf.js",
+            "styles": [
+              "projects/chapter8/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/chapter8/src/favicon.ico",
+              "projects/chapter8/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/chapter8/tsconfig.app.json",
+              "projects/chapter8/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "chapter8-e2e": {
+      "root": "projects/chapter8-e2e/",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/chapter8-e2e/protractor.conf.js",
+            "devServerTarget": "chapter8:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "chapter8:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "projects/chapter8-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "beginning-angular"
