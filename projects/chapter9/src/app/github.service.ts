@@ -8,6 +8,7 @@ export interface GitHubUser {
     avatar_url: string;
     login: string;
     score: string;
+    items: object;
 }
 @Injectable()
 export class GitHubService {
