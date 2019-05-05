@@ -1,37 +1,30 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+
 import { AppComponent } from './app.component';
-import { GitHubService } from './github.service';
-import{ FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home.component';
 import { NotFoundComponent } from './notfound.component';
-import { GitHubComponent } from './github.component';
-import { routing } from './app.routing';
 import { SettingsComponent } from './settings.component';
-import { GitHubUserComponent } from './githubuser.component';
-import { AuthGuard} from './auth-guard.service';
-import { LoginComponent } from './login.component';
-import { LoginService } from './login.service';
-import { PreventUnsavedChangesGuard } from './prevent-unsaved-changes-guard.service';
+
+import { routing } from './app.routing';
+import { GitHubModule} from './github/github.module';
+import { LoginModule} from './login/login.module';
+import { GitHubRouting } from './github/github.routing';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NotFoundComponent,
-    GitHubComponent,
     SettingsComponent,
-    GitHubUserComponent,
-    LoginComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
+    LoginModule,
+    GitHubModule,
+    GitHubRouting,
     routing
   ],
-  providers: [GitHubService, AuthGuard, LoginService, PreventUnsavedChangesGuard],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
