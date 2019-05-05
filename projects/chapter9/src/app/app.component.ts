@@ -5,64 +5,25 @@ import { filter, debounceTime, distinctUntilChanged } from 'rxjs/operators';
 @Component({
   selector: 'app-root',
   template: `
-            <input class="form-control" type="search" [formControl] = "searchControl">
-            <h3> Github users results </h3>
-            <div *ngIf="isLoading">
-                <i class="fa fa-spinner fa-spin fa-3x"></i>
-             </div>
-            <div *ngIf="!isLoading">
-                <div *ngFor="let user of users" class="media">
-                  <div class="media-left">
-                    <a href=" {{ user.html_url }}">
-                      <img class="media-object img" src= " {{ user.avatar_url }}">
-                    </a>
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                  <a class="navbar-brand" href="#">Navbar</a>
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                      <li class="nav-item">
+                        <a class="nav-link" routerLink="">Home <span class="sr-only">(current)</span></a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" routerLink="GitHub">GitHub</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" routerLink="Settings">Settings</a>
+                      </li>
+                    </ul>
                   </div>
-                      <div class="media-body">
-                        <h5 class="media-heading"> {{ user.login }} </h5>
-                        Score: {{ user.score }}
-                      </div>
-            </div>
-            </div>
-
-
-
-             `,
-   styles: [`
-    .img {
-        position: relative;
-        float: left;
-        width: 100px;
-        height: 100px;
-        background-position: 50% 50%;
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-
-   `]
+                </nav>
+                <router-outlet></router-outlet>
+             `
 })
 export class AppComponent {
-  title = 'chapter9';
-  users = [];
-  isLoading: boolean = true;
-  searchControl = new FormControl();
-  constructor(private _githubService: GitHubService) {
-
-  }
-
-  ngOnInit() {
-    this.searchControl.valueChanges
-    .pipe(
-        filter((text: string):boolean => text.length >= 3),
-        debounceTime(400),
-        distinctUntilChanged()
-        )
-    .subscribe((value: string):void => {
-        this._githubService.getGitHubData('greg')
-            .subscribe(data => {
-                this.isLoading = false;
-                this.users = data.items;
-                console.log(data.items)
-            });
-    });
-  }
+ // ...
 }
