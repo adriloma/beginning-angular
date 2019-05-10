@@ -1,10 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-
+import { routing } from './app.routing';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
-
+import { UserRouting } from './modules/user/user.routing';
 import { UserModule } from './modules/user/user.module';
 
 const config = {
@@ -25,7 +25,9 @@ const config = {
     BrowserModule,
     AngularFireModule.initializeApp(config),
     AngularFirestoreModule,
-      UserModule
+    UserModule,
+    UserRouting,
+    routing
   ],
   providers: [],
   bootstrap: [AppComponent]
