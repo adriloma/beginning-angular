@@ -8,7 +8,7 @@ import { BehaviorSubject } from 'rxjs';
 export class LoginService {
     private loggedIn = new BehaviorSubject<boolean>(false);
     loggedInUser;
-    constructor(private router:Router, private afAuth: AngularFireAuth) {
+    constructor(private router: Router, private afAuth: AngularFireAuth) {
 
     }
 
@@ -29,7 +29,7 @@ export class LoginService {
                         this.router.navigate(['login/' + error.message]);
                         console.log(error);
                     }
-                )
+                );
         }
     }
 
@@ -46,10 +46,10 @@ export class LoginService {
                 this.loggedIn.next(true);
                 this.loggedInUser = authState.uid;
                 this.router.navigate(['/']);
-                console.log("logged in as " + authState.uid);
+                console.log('logged in as ' + authState.uid);
             } else {
                 this.router.navigate(['login']);
             }
-        })
+        });
     }
 }

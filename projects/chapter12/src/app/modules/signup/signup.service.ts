@@ -8,7 +8,7 @@ import { BehaviorSubject } from 'rxjs';
 export class SignUpService {
     private loggedIn = new BehaviorSubject<boolean>(false);
     loggedInUser;
-    constructor(private router:Router, private afAuth: AngularFireAuth) {
+    constructor(private router: Router, private afAuth: AngularFireAuth) {
 
     }
 
@@ -29,7 +29,7 @@ export class SignUpService {
                         this.router.navigate(['signup/' + error.message]);
                         console.log(error);
                     }
-                )
+                );
         }
     }
 }
