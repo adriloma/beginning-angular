@@ -6,7 +6,8 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { UserRouting } from './modules/user/user.routing';
 import { UserModule } from './modules/user/user.module';
-
+import { LoginRouting } from './modules/login/login.routing';
+import { LoginModule } from './modules/login/login.module';
 const config = {
   apiKey: 'AIzaSyBs4sWqXGEpG1jApEHrHwyWc1Fimj4leoI',
   authDomain: 'beginning-angular-8b572.firebaseapp.com',
@@ -26,7 +27,9 @@ const config = {
     AngularFireModule.initializeApp(config),
     AngularFirestoreModule,
     UserModule,
+    LoginModule,
     UserRouting,
+    LoginRouting,
     routing
   ],
   providers: [],
