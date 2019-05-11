@@ -2,26 +2,28 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
 
-## Development server
+This project contains the source code developed during the reading of [Beginning Angular with Typescript](https://www.amazon.es/Beginning-Angular-Typescript-updated-English-ebook/dp/B01N9ZUHBA/ref=tmm_kin_swatch_0?_encoding=UTF8&qid=1556363778&sr=8-11) by Greg Lim.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Using git tags you can move through the state of the repository on each chapter of the book.
 
-## Code scaffolding
+To build and open the application run:  
+`ng serve --project --open`  
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Default angular project is the last project described in the book. To build the different projects done through the book use:  
+`ng serve --project [name-of-the-project] --open`
 
-## Build
+## Projects
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### chapter12 (default)
+Implementation of full C.R.U.D. using Firebase for realtime database, including registration and authentication. You can signup and then login with your user to create, edit and delete clients attached to your user.
+### chapter9
+Example of using observables over GitHub API. Credentials for login:  
+ username: jason  
+ password: 123
+### chapter8
+Example of using an observable on keypress.
+### chapter7
+Example of a model driven form.
+### chapter6
+Example of a template driven form.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
