@@ -8,6 +8,8 @@ import { UserRouting } from './modules/user/user.routing';
 import { UserModule } from './modules/user/user.module';
 import { LoginRouting } from './modules/login/login.routing';
 import { LoginModule } from './modules/login/login.module';
+import { SignUpRouting } from './modules/signup/signup.routing';
+import { SignUpModule } from './modules/signup/signup.module';
 const config = {
   apiKey: 'AIzaSyBs4sWqXGEpG1jApEHrHwyWc1Fimj4leoI',
   authDomain: 'beginning-angular-8b572.firebaseapp.com',
@@ -30,6 +32,8 @@ const config = {
     LoginModule,
     UserRouting,
     LoginRouting,
+    SignUpRouting,
+    SignUpModule,
     routing
   ],
   providers: [],

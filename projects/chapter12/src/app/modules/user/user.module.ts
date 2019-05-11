@@ -4,7 +4,7 @@ import { UserComponent } from './user.component'
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UserFormComponent } from './user-form.component';
-
+import { AuthGuard } from './../../auth.guard';
 @NgModule({
     imports:  [
         CommonModule,
@@ -18,7 +18,7 @@ import { UserFormComponent } from './user-form.component';
     exports: [
         UserComponent
     ],
-    providers: []
+    providers: [AuthGuard]
 })
 export class UserModule {
     // ....
