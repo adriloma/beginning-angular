@@ -1,4 +1,5 @@
 <h1>Users</h1>
+<button class="btn btn-primary" (click)="add()">Add</button>
 <table class="table table-bordered">
     <thead>
         <tr>
@@ -10,16 +11,16 @@
     </thead>
     <tbody>
         <tr *ngFor="let user of users | async">
-            <td>{{ user.name }}</td>
-            <td>{{ user.email }}</td>
+            <td>{{ user.data.name }}</td>
+            <td>{{ user.data.email }}</td>
             <td>
-                <a>
+                <a [routerLink] = "['/add', user.id]">
                     <i class="fa fa-edit"></i>
                 </a>
             </td>
             <td>
                 <a>
-                    <i class="fa fa-trash"></i>
+                    <i class="fa fa-trash" (click)="delete(user.id, user.data.name)"></i>
                 </a>
             </td>
         </tr>
