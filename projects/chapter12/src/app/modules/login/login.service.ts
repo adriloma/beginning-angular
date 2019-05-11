@@ -7,7 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable()
 export class LoginService {
     private loggedIn = new BehaviorSubject<boolean>(false);
-
+    loggedInUser;
     constructor(private router:Router, private afAuth: AngularFireAuth) {
 
     }
@@ -21,6 +21,7 @@ export class LoginService {
                 .then(authState => {
                     console.log('Login-then', authState);
                     this.loggedIn.next(true);
+                    this.loggedInUser = authState.user.uid;
                     this.router.navigate(['/']);
                 })
                 .catch(
@@ -35,6 +36,7 @@ export class LoginService {
     logOut() {
         this.loggedIn.next(false);
         this.afAuth.auth.signOut();
+        this.loggedInUser = null;
         this.router.navigate(['login']);
     }
 
@@ -42,6 +44,7 @@ export class LoginService {
         return this.afAuth.authState.subscribe(authState => {
             if (authState) {
                 this.loggedIn.next(true);
+                this.loggedInUser = authState.uid;
                 this.router.navigate(['/']);
                 console.log("logged in as " + authState.uid);
             } else {
